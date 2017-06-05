@@ -14,5 +14,32 @@ module.exports = function(app)
 
 		connection.end();
 	});
-}
 
+	app.get('/produtos/form', function(req, res){
+		res.render('produtos/form');
+	});
+
+	app.post('/produtos', function(req, res){
+		var produto = req.body;
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+		produtosDAO.salva(produto, function(err, results){
+			res.redirect('/produtos')
+		});
+
+		connection.end();
+	});
+
+	app.delete('/produtos', function(req,res){
+		var produto = req.body;
+		console.log(produto);
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+		produtosDAO.deleta(produto, function(err, result){
+			console.log('200');
+			//res.redirect('/produtos');
+		});
+
+		connection.end();
+	});
+}
