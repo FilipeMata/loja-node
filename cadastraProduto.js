@@ -1,7 +1,7 @@
 var http = require('http');
 
 var config = {
-	host: 'localhost',
+	host: '127.0.0.1',
 	port: '3000',
 	path: '/produtos',
 	method: 'post',
