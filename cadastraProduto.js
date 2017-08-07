@@ -20,7 +20,7 @@ var client = http.request(config, function(res){
 var produto = {
 	titulo: 'Introducao a linguagem GO',
 	descricao: 'Livro de Introducao a linguagem GO',
-	preco: '100'
+	//preco: '100'
 }
 
 client.end(JSON.stringify(produto));
